@@ -1,7 +1,7 @@
 # Salesforce Lightning Examples
 
 ## Example 01 - User Record Access
-A simple component which takes two parameters - 'User ID' and 'Record Id'. This can be used to display the level of access
+A simple component which takes two parameters - 'User Id' and 'Record I'. This can be used to display the level of access
 that a user has to a particular record.
 <p align="center">
   <img src="01 - User Record Access/screenshot-desktop.png" alt="Mobile Example" width="732" height="94" />
