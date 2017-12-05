@@ -1,0 +1,86 @@
+<aura:component description="User_Record_Access" controller="User_Record_Access">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:attribute name="userId" type="String" access="public" />
+    <aura:attribute name="recordId" type="String" access="public" />
+
+    <aura:attribute name="loaded" type="Boolean" access="private" />
+    <aura:attribute name="access" type="UserRecordAccess" access="private" />
+
+    <aura:if isTrue="{!v.loaded}">
+
+        <table  class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Read Access">Read Access</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Edit Access">Edit Access</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Transfer Access">Transfer Access</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="All Access">All Access</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Max Access Level">Max Access Level</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Read Access">
+                        <div class="slds-truncate" title="{!v.access.HasReadAccess}">
+                            <aura:if isTrue="{!v.access.HasReadAccess}">
+                                <lightning:icon iconName="utility:success" size="small" />
+                            </aura:if>
+                            <aura:if isTrue="{!!v.access.HasReadAccess}">
+                                <lightning:icon iconName="utility:error" size="small" />
+                            </aura:if>
+                        </div>
+                    </td>
+                    <td data-label="Edit Access">
+                        <div class="slds-truncate" title="{!v.access.HasEditAccess}">
+                            <aura:if isTrue="{!v.access.HasEditAccess}">
+                                <lightning:icon iconName="utility:success" size="small" />
+                            </aura:if>
+                            <aura:if isTrue="{!!v.access.HasEditAccess}">
+                                <lightning:icon iconName="utility:error" size="small" />
+                            </aura:if>
+                        </div>
+                    </td>
+                    <td data-label="Transfer Access">
+                        <div class="slds-truncate" title="{!v.access.HasTransferAccess}">
+                            <aura:if isTrue="{!v.access.HasTransferAccess}">
+                                <lightning:icon iconName="utility:success" size="small" />
+                            </aura:if>
+                            <aura:if isTrue="{!!v.access.HasTransferAccess}">
+                                <lightning:icon iconName="utility:error" size="small" />
+                            </aura:if>
+                        </div>
+                    </td>
+                    <td data-label="All Access">
+                        <div class="slds-truncate" title="{!v.access.HasAllAccess}">
+                            <aura:if isTrue="{!v.access.HasAllAccess}">
+                                <lightning:icon iconName="utility:success" size="small" />
+                            </aura:if>
+                            <aura:if isTrue="{!!v.access.HasAllAccess}">
+                                <lightning:icon iconName="utility:error" size="small" />
+                            </aura:if>
+                        </div>
+                    </td>
+                    <td data-label="Max Access Level">
+                        <div class="slds-truncate" title="{!v.access.MaxAccessLevel}">
+                                {!v.access.MaxAccessLevel}
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </aura:if>
+
+</aura:component>
